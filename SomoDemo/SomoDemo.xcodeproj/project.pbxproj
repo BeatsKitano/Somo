@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		98F5EADA1FC6A74C00D91FA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F5EAD91FC6A74C00D91FA1 /* AppDelegate.m */; };
+		98F5EAE01FC6A74C00D91FA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F5EADE1FC6A74C00D91FA1 /* Main.storyboard */; };
+		98F5EAE21FC6A74C00D91FA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F5EAE11FC6A74C00D91FA1 /* Assets.xcassets */; };
+		98F5EAE51FC6A74C00D91FA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F5EAE31FC6A74C00D91FA1 /* LaunchScreen.storyboard */; };
+		98F5EAE81FC6A74C00D91FA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F5EAE71FC6A74C00D91FA1 /* main.m */; };
+		98F5EAF11FC6B69D00D91FA1 /* UIView+SomoSkeleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F5EAF01FC6B69D00D91FA1 /* UIView+SomoSkeleton.m */; };
+		98F5EAF51FC7F92D00D91FA1 /* SomoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F5EAF41FC7F92D00D91FA1 /* SomoView.m */; };
+		98F5EAF91FC8148B00D91FA1 /* SView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F5EAF81FC8148B00D91FA1 /* SView.m */; };
+		98F5EAFC1FC91BD200D91FA1 /* SomoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F5EAFB1FC91BD200D91FA1 /* SomoListController.m */; };
+		98F5EB001FC91E9D00D91FA1 /* TableViewSkeletonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F5EAFE1FC91E9D00D91FA1 /* TableViewSkeletonController.m */; };
+		98F5EB011FC91E9D00D91FA1 /* TableViewSkeletonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F5EAFF1FC91E9D00D91FA1 /* TableViewSkeletonController.xib */; };
+		98F5EB051FC91EE600D91FA1 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F5EB031FC91EE600D91FA1 /* TableViewCell.m */; };
+		98F5EB061FC91EE600D91FA1 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F5EB041FC91EE600D91FA1 /* TableViewCell.xib */; };
+		98F5EB0C1FC9213D00D91FA1 /* CommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F5EB0A1FC9213D00D91FA1 /* CommonViewController.m */; };
+		98F5EB0D1FC9213D00D91FA1 /* CommonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F5EB0B1FC9213D00D91FA1 /* CommonViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		98D3E36A1FC95EEA007F5A97 /* SomoDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SomoDefines.h; sourceTree = "<group>"; };
+		98F5EAD51FC6A74C00D91FA1 /* SomoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		98F5EAD81FC6A74C00D91FA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		98F5EAD91FC6A74C00D91FA1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		98F5EADF1FC6A74C00D91FA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		98F5EAE11FC6A74C00D91FA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		98F5EAE41FC6A74C00D91FA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		98F5EAE61FC6A74C00D91FA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98F5EAE71FC6A74C00D91FA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		98F5EAEF1FC6B69D00D91FA1 /* UIView+SomoSkeleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+SomoSkeleton.h"; sourceTree = "<group>"; };
+		98F5EAF01FC6B69D00D91FA1 /* UIView+SomoSkeleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+SomoSkeleton.m"; sourceTree = "<group>"; };
+		98F5EAF31FC7F92D00D91FA1 /* SomoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SomoView.h; sourceTree = "<group>"; };
+		98F5EAF41FC7F92D00D91FA1 /* SomoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomoView.m; sourceTree = "<group>"; };
+		98F5EAF61FC7F9F600D91FA1 /* SomoSkeletonLayoutProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SomoSkeletonLayoutProtocol.h; sourceTree = "<group>"; };
+		98F5EAF71FC8148B00D91FA1 /* SView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SView.h; sourceTree = "<group>"; };
+		98F5EAF81FC8148B00D91FA1 /* SView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SView.m; sourceTree = "<group>"; };
+		98F5EAFA1FC91BD200D91FA1 /* SomoListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SomoListController.h; sourceTree = "<group>"; };
+		98F5EAFB1FC91BD200D91FA1 /* SomoListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomoListController.m; sourceTree = "<group>"; };
+		98F5EAFD1FC91E9D00D91FA1 /* TableViewSkeletonController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewSkeletonController.h; sourceTree = "<group>"; };
+		98F5EAFE1FC91E9D00D91FA1 /* TableViewSkeletonController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewSkeletonController.m; sourceTree = "<group>"; };
+		98F5EAFF1FC91E9D00D91FA1 /* TableViewSkeletonController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewSkeletonController.xib; sourceTree = "<group>"; };
+		98F5EB021FC91EE600D91FA1 /* TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		98F5EB031FC91EE600D91FA1 /* TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		98F5EB041FC91EE600D91FA1 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		98F5EB081FC91F3C00D91FA1 /* Somo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Somo.h; sourceTree = "<group>"; };
+		98F5EB091FC9213D00D91FA1 /* CommonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonViewController.h; sourceTree = "<group>"; };
+		98F5EB0A1FC9213D00D91FA1 /* CommonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonViewController.m; sourceTree = "<group>"; };
+		98F5EB0B1FC9213D00D91FA1 /* CommonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonViewController.xib; sourceTree = "<group>"; };
+		98F5EB0E1FC9220E00D91FA1 /* Somo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Somo-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98F5EAD21FC6A74C00D91FA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		98F5EACC1FC6A74C00D91FA1 = {
+			isa = PBXGroup;
+			children = (
+				98F5EAD71FC6A74C00D91FA1 /* SomoDemo */,
+				98F5EAD61FC6A74C00D91FA1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		98F5EAD61FC6A74C00D91FA1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98F5EAD51FC6A74C00D91FA1 /* SomoDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98F5EAD71FC6A74C00D91FA1 /* SomoDemo */ = {
+			isa = PBXGroup;
+			children = (
+				98F5EAEE1FC6B58E00D91FA1 /* Somo */,
+				98F5EAD81FC6A74C00D91FA1 /* AppDelegate.h */,
+				98F5EAD91FC6A74C00D91FA1 /* AppDelegate.m */,
+				98F5EAFA1FC91BD200D91FA1 /* SomoListController.h */,
+				98F5EAFB1FC91BD200D91FA1 /* SomoListController.m */,
+				98F5EB091FC9213D00D91FA1 /* CommonViewController.h */,
+				98F5EB0A1FC9213D00D91FA1 /* CommonViewController.m */,
+				98F5EB0B1FC9213D00D91FA1 /* CommonViewController.xib */,
+				98F5EAFD1FC91E9D00D91FA1 /* TableViewSkeletonController.h */,
+				98F5EAFE1FC91E9D00D91FA1 /* TableViewSkeletonController.m */,
+				98F5EAFF1FC91E9D00D91FA1 /* TableViewSkeletonController.xib */,
+				98F5EB021FC91EE600D91FA1 /* TableViewCell.h */,
+				98F5EB031FC91EE600D91FA1 /* TableViewCell.m */,
+				98F5EB041FC91EE600D91FA1 /* TableViewCell.xib */,
+				98F5EAF71FC8148B00D91FA1 /* SView.h */,
+				98F5EAF81FC8148B00D91FA1 /* SView.m */,
+				98F5EADE1FC6A74C00D91FA1 /* Main.storyboard */,
+				98F5EAE11FC6A74C00D91FA1 /* Assets.xcassets */,
+				98F5EAE31FC6A74C00D91FA1 /* LaunchScreen.storyboard */,
+				98F5EAE61FC6A74C00D91FA1 /* Info.plist */,
+				98F5EAE71FC6A74C00D91FA1 /* main.m */,
+				98F5EB0E1FC9220E00D91FA1 /* Somo-Prefix.pch */,
+			);
+			path = SomoDemo;
+			sourceTree = "<group>";
+		};
+		98F5EAEE1FC6B58E00D91FA1 /* Somo */ = {
+			isa = PBXGroup;
+			children = (
+				98F5EAEF1FC6B69D00D91FA1 /* UIView+SomoSkeleton.h */,
+				98F5EAF01FC6B69D00D91FA1 /* UIView+SomoSkeleton.m */,
+				98F5EAF31FC7F92D00D91FA1 /* SomoView.h */,
+				98F5EAF41FC7F92D00D91FA1 /* SomoView.m */,
+				98F5EAF61FC7F9F600D91FA1 /* SomoSkeletonLayoutProtocol.h */,
+				98F5EB081FC91F3C00D91FA1 /* Somo.h */,
+				98D3E36A1FC95EEA007F5A97 /* SomoDefines.h */,
+			);
+			path = Somo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		98F5EAD41FC6A74C00D91FA1 /* SomoDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98F5EAEB1FC6A74C00D91FA1 /* Build configuration list for PBXNativeTarget "SomoDemo" */;
+			buildPhases = (
+				98F5EAD11FC6A74C00D91FA1 /* Sources */,
+				98F5EAD21FC6A74C00D91FA1 /* Frameworks */,
+				98F5EAD31FC6A74C00D91FA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SomoDemo;
+			productName = SomoDemo;
+			productReference = 98F5EAD51FC6A74C00D91FA1 /* SomoDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98F5EACD1FC6A74C00D91FA1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = KINX;
+				TargetAttributes = {
+					98F5EAD41FC6A74C00D91FA1 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 98F5EAD01FC6A74C00D91FA1 /* Build configuration list for PBXProject "SomoDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 98F5EACC1FC6A74C00D91FA1;
+			productRefGroup = 98F5EAD61FC6A74C00D91FA1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98F5EAD41FC6A74C00D91FA1 /* SomoDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		98F5EAD31FC6A74C00D91FA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98F5EB011FC91E9D00D91FA1 /* TableViewSkeletonController.xib in Resources */,
+				98F5EB061FC91EE600D91FA1 /* TableViewCell.xib in Resources */,
+				98F5EAE51FC6A74C00D91FA1 /* LaunchScreen.storyboard in Resources */,
+				98F5EAE21FC6A74C00D91FA1 /* Assets.xcassets in Resources */,
+				98F5EAE01FC6A74C00D91FA1 /* Main.storyboard in Resources */,
+				98F5EB0D1FC9213D00D91FA1 /* CommonViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98F5EAD11FC6A74C00D91FA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98F5EAF91FC8148B00D91FA1 /* SView.m in Sources */,
+				98F5EAFC1FC91BD200D91FA1 /* SomoListController.m in Sources */,
+				98F5EB001FC91E9D00D91FA1 /* TableViewSkeletonController.m in Sources */,
+				98F5EAE81FC6A74C00D91FA1 /* main.m in Sources */,
+				98F5EAF11FC6B69D00D91FA1 /* UIView+SomoSkeleton.m in Sources */,
+				98F5EB051FC91EE600D91FA1 /* TableViewCell.m in Sources */,
+				98F5EADA1FC6A74C00D91FA1 /* AppDelegate.m in Sources */,
+				98F5EAF51FC7F92D00D91FA1 /* SomoView.m in Sources */,
+				98F5EB0C1FC9213D00D91FA1 /* CommonViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		98F5EADE1FC6A74C00D91FA1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				98F5EADF1FC6A74C00D91FA1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		98F5EAE31FC6A74C00D91FA1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				98F5EAE41FC6A74C00D91FA1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		98F5EAE91FC6A74C00D91FA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		98F5EAEA1FC6A74C00D91FA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		98F5EAEC1FC6A74C00D91FA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2VZNLBR87Y;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SomoDemo/Somo-Prefix.pch";
+				INFOPLIST_FILE = SomoDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.k.SomoDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		98F5EAED1FC6A74C00D91FA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2VZNLBR87Y;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SomoDemo/Somo-Prefix.pch";
+				INFOPLIST_FILE = SomoDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.k.SomoDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98F5EAD01FC6A74C00D91FA1 /* Build configuration list for PBXProject "SomoDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98F5EAE91FC6A74C00D91FA1 /* Debug */,
+				98F5EAEA1FC6A74C00D91FA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98F5EAEB1FC6A74C00D91FA1 /* Build configuration list for PBXNativeTarget "SomoDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98F5EAEC1FC6A74C00D91FA1 /* Debug */,
+				98F5EAED1FC6A74C00D91FA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98F5EACD1FC6A74C00D91FA1 /* Project object */;
+}
