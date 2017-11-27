@@ -1,5 +1,4 @@
-
-# Somo
+ 
 Somo is a Skeleton-style animation library that's simple enough.
 
 ## Introduction
