@@ -10,7 +10,7 @@ Somo is a Skeleton-style animation library that's simple enough.
 Get [Cocoapods](https://cocoapods.org/)
 Add the pod to your podfile
 ```
-pod 'lottie-ios'
+pod 'Somo'
 ```
 run
 ```
