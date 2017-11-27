@@ -70,9 +70,9 @@ static void * kSomoContainerKey = &kSomoContainerKey;
 }
 
 - (void)endSomo{
-//	if (!self.somoContainer) {
-//		return;
-//	}
+	if (!self.somoContainer) {
+		return;
+	}
 	self.userInteractionEnabled = YES;
 	[self clear];
 }
