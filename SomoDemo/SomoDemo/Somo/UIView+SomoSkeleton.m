@@ -62,11 +62,9 @@ static void * kSomoContainerKey = &kSomoContainerKey;
 }
 
 - (void)buildSkeletonSubViews:(NSArray<SomoView *> *)views{
-	__weak typeof(self) weakSelf = self;
-	[views enumerateObjectsUsingBlock:^(SomoView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-		__strong typeof(weakSelf) strongSelf = weakSelf;
-		[strongSelf.somoContainer addSubview:obj];
-	}];
+	for (SomoView * view in views) {
+		[self.somoContainer addSubview:view];
+	}
 }
 
 - (void)endSomo{
