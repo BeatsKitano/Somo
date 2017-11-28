@@ -3,6 +3,8 @@ iOS数据加载时的UI，在前几年，UI效果太过于局限。直到Skeleto
 这种效果是预先加载布局，用户不是面对一片空白，或者面对一个简单的旋转效果。<br/>
 Somo对UIView进行了扩展，开发者只需要调用一个方法即可开始或者结束Skeleton效果。
 
+![](https://github.com/xorshine/Somo/blob/master/Somo.gif)
+
 ***
 ### 用法
 
@@ -54,9 +56,6 @@ Somo对UIView进行了扩展，开发者只需要调用一个方法即可开始�
 
 *** 
 Somo is a Skeleton-style animation library that's simple enough.
-
-## Introduction
-![Example1](https://github.com/xorshine/Somo/blob/master/SomoDemo/somo.mov)
 
 ### Cocoapods
 
