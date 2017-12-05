@@ -17,7 +17,7 @@ Somo对UIView进行了扩展，开发者只需要调用一个方法即可开始�
  *	SomoSkeletonLayoutProtocol
  *
  *	When you need a view that has a Skeleton effect
- *  set the view to follow the protocol
+ *      set the view to follow the protocol
 **/
 @protocol SomoSkeletonLayoutProtocol<NSObject>
 ```
