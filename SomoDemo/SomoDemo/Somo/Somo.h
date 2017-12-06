@@ -12,5 +12,6 @@
 #import "SomoView.h"
 #import "UIView+SomoSkeleton.h"
 #import "SomoSkeletonLayoutProtocol.h"
+#import "SomoDataSourceProvider.h"
 
 #endif /* Somo_h */

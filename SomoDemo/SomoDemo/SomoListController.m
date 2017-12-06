@@ -28,7 +28,12 @@
 	if (indexPath.row == 1) {
 		UIViewController * vc = [[NSClassFromString(@"TableViewSkeletonController") alloc] init];
 		[self.navigationController pushViewController:vc animated:YES];
-	}else{
+	}
+	else if (indexPath.row == 2){
+		UIViewController * vc = [[NSClassFromString(@"DataSourceTableViewController") alloc] init];
+		[self.navigationController pushViewController:vc animated:YES];
+	}
+	else{
 		UIViewController * vc = [[NSClassFromString(@"CommonViewController") alloc] init];
 		[self.navigationController pushViewController:vc animated:YES];
 	}

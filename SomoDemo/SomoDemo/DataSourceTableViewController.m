@@ -1,4 +1,4 @@
-//
+////
 //  TableViewSkeletonController.m
 //  SomoDemo
 //
@@ -6,30 +6,35 @@
 //  Copyright © 2017年 KINX. All rights reserved.
 //
 
-#import "TableViewSkeletonController.h"
-#import "TableViewCell.h"
+#import "DataSourceTableViewController.h"
+#import "DataSourceTableViewCell.h"
 #import "Somo.h"
 
-@interface TableViewSkeletonController ()
+@interface DataSourceTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray<NSNumber *> * dataSource;
 
-@property (assign, nonatomic,getter=isLoaded) BOOL loaded;
+@property (strong, nonatomic) SomoDataSourceProvider * provider;
 
 @end
 
-@implementation TableViewSkeletonController
+@implementation DataSourceTableViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+	[super viewDidLoad];
 	
 	self.tableView.rowHeight = 100;
-	[self.tableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"id"];
+	[self.tableView registerNib:[UINib nibWithNibName:@"DataSourceTableViewCell" bundle:nil] forCellReuseIdentifier:@"id"];
 	 
 	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo"]];
 	self.navigationItem.titleView.contentMode = UIViewContentModeScaleAspectFit;
 	
-	self.loaded = NO;
+	#pragma mark - provider
+//	将tableview的datasource指向SomoDataSourceProvider
+//	当数据加载完成后，将tableview的datasource指向self
+	self.provider = [SomoDataSourceProvider dataSourceProviderWithCellReuseIdentifier:@"id"];
+	self.tableView.dataSource = self.provider;
+	self.tableView.delegate = self.provider;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -48,44 +53,41 @@
 }
 
 - (void)load{
-	self.loaded = YES;
-	for (NSInteger i = 0; i < self.dataSource.count; i++) {
-		self.dataSource[i] = @(NO);
+	
+	for (NSInteger i = 0; i < 20; i++) {
+		self.dataSource[i] = @(1);
 	}
+	#pragma mark -
+	//==================================================
+	self.tableView.dataSource = self;
+	self.tableView.delegate = self;
+	//==================================================
 	[self.tableView reloadData];
-	self.navigationItem.rightBarButtonItem = nil;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	if (self.loaded) {
-		return self.dataSource.count;
-	}
-	
-	//随便多少，cell个数能铺满屏幕即可
-	return 10;
-}
- 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id" forIndexPath:indexPath];
-    return cell;
+	return self.dataSource.count;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(TableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-	cell.shouldLoading = self.dataSource[indexPath.row].boolValue;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id" forIndexPath:indexPath];
+	return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - 在这里必调用 endSomo
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+	[cell endSomo];
+}
+
 - (NSMutableArray<NSNumber *> *)dataSource{
 	if (!_dataSource) {
 		_dataSource = [NSMutableArray array];
-		for (NSInteger z = 0; z < 10; z++) {
-			[_dataSource addObject:@(YES)];
-		}
 	}
 	return _dataSource;
 }
