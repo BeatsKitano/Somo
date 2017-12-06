@@ -3,6 +3,10 @@
 这种效果是预先加载布局，用户不是面对一片空白，或者面对一个简单的旋转效果。<br/>
 Somo对UIView进行了扩展，开发者只需要调用一个方法即可开始或者结束Skeleton效果。
 
+### 关于UITableView
+* demo中有两种思路，请参看Demo。
+* 使用SomoDataSourceProvider
+
 ![](https://github.com/xorshine/Somo/blob/master/Somo.gif)
 
 ***
