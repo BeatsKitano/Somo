@@ -41,6 +41,24 @@
 ### <a id="somo_uitableview"></a>UITableView-skeleton
 
 在常见场景中，数据请求未着陆前，UITableView中所有visibleCells都应该呈现skeleton效果。为了达到这种效果，您不必再编写更多的代码。Somo中有一个遵循<UITableViewDataSource,UITableViewDelegate>协议的SomoDataSourceProvider类，您只需要按照该类指定的初始化方法构造一个实例，数据未着陆前，将tableview实例的datasource和delegate指向构造出的SomoDataSourceProvider实例。当数据着陆后，将tableview的datasource和delegate指向controller或其他。
+
+* 数据着陆前：
+```objective-c
+#pragma mark - provider
+//将tableview的datasource指向SomoDataSourceProvider
+//当数据加载完成后，将tableview的datasource指向self
+self.provider = [SomoDataSourceProvider dataSourceProviderWithCellReuseIdentifier:@"id"];
+self.tableView.dataSource = self.provider;
+self.tableView.delegate = self.provider;
+```
+* 数据着陆后：
+```objective-c
+#pragma mark - 
+self.tableView.dataSource = self;
+self.tableView.delegate = self;
+//============================
+[self.tableView reloadData];
+```
 #### 注意点:
 你必须实现<UITableViewDelegate>中的一个方法：
 	
