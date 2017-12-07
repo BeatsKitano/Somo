@@ -1,103 +1,55 @@
-### 介绍
-* iOS数据加载时的UI，在前几年，UI效果太过于局限。直到Skeleton出现,<br/>
-这种效果是预先加载布局，用户不是面对一片空白，或者面对一个简单的旋转效果。<br/>
-Somo对UIView进行了扩展，开发者只需要调用一个方法即可开始或者结束Skeleton效果。
+### 目录
 
-### 关于UITableView
-* demo中有两种思路，请参看Demo。
-* 使用SomoDataSourceProvider
+### 
+ * [简介](#somo_intro)
+ * [集成](#somo_integrate)
+ * [用法](#somo_usage)
+ * [UITableView-skeleton](#somo_uitableview)
 
+
+### <a id="somo_intro"></a>简介 
 ![](https://github.com/xorshine/Somo/blob/master/Somo.gif)
 
-***
-### 用法
+### <a id="somo_integrate"></a>集成
+```pod 'Somo'```
 
-① 集成：```pod 'Somo'```<br/>
-***
-② 当需要某一个UIView拥有Skeleton效果时，只需遵守<SomoSkeletonLayoutProtocol>协议
-
+### <a id="somo_usage"></a>使用
 ```objective-c
-/**
- *	SomoSkeletonLayoutProtocol
- *
- *	When you need a view that has a Skeleton effect
- *      set the view to follow the protocol
-**/
-@protocol SomoSkeletonLayoutProtocol<NSObject>
+#import "Somo.h" 
 ```
-***
-③ <SomoSkeletonLayoutProtocol>你必须实现一个@required方法
+* 当需要某一个UIView拥有Skeleton效果时，只需遵守<SomoSkeletonLayoutProtocol>协议，实现一个必要方法：
+	
 ```objective-c
 @required
 /**
  *  Example:
-		 SomoView * s0 = [[SomoView alloc] initWithFrame:CGRectMake(10, 20, 70, 70)];
-		 SomoView * s1 = [[SomoView alloc] initWithFrame:CGRectMake(100, 30, 200, 15)];
-		 SomoView * s2 = [[SomoView alloc] initWithFrame:CGRectMake(100, 70, 100, 15)];
- 
-		return @[s0,s1,s2];
- *
+	 SomoView * s0 = [[SomoView alloc] initWithFrame:CGRectMake(10, 20, 70, 70)];
+	 SomoView * s1 = [[SomoView alloc] initWithFrame:CGRectMake(100, 30, 200, 15)];
+	 SomoView * s2 = [[SomoView alloc] initWithFrame:CGRectMake(100, 70, 100, 15)];
+
+	return @[s0,s1,s2];
  *
  @return array of SomoViews
  */
 - (NSArray<SomoView *> *)somoSkeletonLayout;
 ```
-***
-④调用UIView的SomoSkeleton扩展方法
+* Somo对UIView进行了扩展，开发者扩展方法即可拥有Skeleton效果：
 ```objective-c
-/**
- *	When this method is called, the view will have a Skeleton effect,
- *	and the view's subview will be completely obscured.
- */
 - (void)beginSomo;
-
-/**
- *	When this method is called and the view is restored to the state you set,
- *	the Skeleton effect disappears.
- */
 - (void)endSomo; 
+```
+### <a id="somo_uitableview"></a>UITableView-skeleton
+
+在常见场景中，数据请求未着陆前，UITableView中所有visibleCells都应该呈现skeleton效果。为了达到这种效果，您不必再编写更多的代码。Somo中有一个遵循<UITableViewDataSource,UITableViewDelegate>协议的SomoDataSourceProvider类，您只需要按照该类指定的初始化方法构造一个实例，数据未着陆前，将tableview实例的datasource和delegate指向构造出的SomoDataSourceProvider实例。当数据着陆后，将tableview的datasource和delegate指向controller或其他。
+#### 注意点:
+你必须实现<UITableViewDelegate>中的一个方法：
+	
+```objective-c
+#pragma mark - 在这里必调用 endSomo
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+	[cell endSomo];
+}
 ```
 
 *** 
 * Somo is a Skeleton-style animation library that's simple enough.
-
-### Cocoapods 
-
-* Add the pod to your podfile
-```
-pod 'Somo'
-```
-run
-```
-pod install
-```
-After installing the cocoapod into your project import Lottie with
-Objective C
-`#import "Somo.h"` 
-
-## Examples
-
-```objective-c
-
-- (NSArray<SomoView *> *)somoSkeletonLayout{
-	SomoView * s0 = [[SomoView alloc] initWithFrame:CGRectMake(10, 20, 70, 70)];
-	SomoView * s1 = [[SomoView alloc] initWithFrame:CGRectMake(100, 30, 200, 15)];
-	SomoView * s2 = [[SomoView alloc] initWithFrame:CGRectMake(100, 70, 100, 15)];
-	
-	return @[s0,s1,s2];
-}
-
-#import "Somo.h"
-/**
- *	When this method is called, the view will have a Skeleton effect,
- *	and the view's subview will be completely obscured.
- */
-- (void)beginSomo;
-
-/**
- *	When this method is called and the view is restored to the state you set,
- *	the Skeleton effect disappears.
- */
-- (void)endSomo;
-```
-
