@@ -1,18 +1,11 @@
-### 目录
-
-### 
  * [简介](#somo_intro)
  * [集成](#somo_integrate)
  * [用法](#somo_usage)
  * [UITableView-skeleton](#somo_uitableview)
-
-
 ### <a id="somo_intro"></a>简介 
 ![](https://github.com/xorshine/Somo/blob/master/Somo.gif)
-
 ### <a id="somo_integrate"></a>集成
 ```pod 'Somo'```
-
 ### <a id="somo_usage"></a>使用
 ```objective-c
 #import "Somo.h" 
@@ -39,9 +32,7 @@
 - (void)endSomo; 
 ```
 ### <a id="somo_uitableview"></a>UITableView-skeleton
-
 在常见场景中，数据请求未着陆前，UITableView中所有visibleCells都应该呈现skeleton效果。为了达到这种效果，您不必再编写更多的代码。Somo中有一个遵循<UITableViewDataSource,UITableViewDelegate>协议的SomoDataSourceProvider类，您只需要按照该类指定的初始化方法构造一个实例，数据未着陆前，将tableview实例的datasource和delegate指向构造出的SomoDataSourceProvider实例。当数据着陆后，将tableview的datasource和delegate指向controller或其他。
-
 * 数据着陆前：
 ```objective-c
 #pragma mark - provider
@@ -59,15 +50,11 @@ self.tableView.delegate = self;
 //============================
 [self.tableView reloadData];
 ```
-#### 注意点:
-你必须实现<UITableViewDelegate>中的一个方法：
-	
+* 注意点:
+不要对SomoDataSourceProvider做定制。必须实现<UITableViewDelegate>中的一个方法：
 ```objective-c
 #pragma mark - 在这里必调用 endSomo
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
 	[cell endSomo];
 }
-```
-
-*** 
-* Somo is a Skeleton-style animation library that's simple enough.
+``` 
