@@ -19,7 +19,7 @@
 - (instancetype)initWithCellReuseIdentifier:(NSString *)reuseIdentifier{
 	if (self = [super init]) {
 		_reuseIdentifier = reuseIdentifier;
-		_numberOfRowsInSection = 15;
+		_numberOfRowsInSection = 30;
 	}
 	return self;
 }
@@ -38,6 +38,21 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+	[cell beginSomo];
+}
+
+#pragma mark - collection
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+	return self.numberOfRowsInSection;
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_reuseIdentifier forIndexPath:indexPath];
+	return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
 	[cell beginSomo];
 }
 

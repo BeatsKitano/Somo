@@ -134,15 +134,15 @@
 		98F5EAEE1FC6B58E00D91FA1 /* Somo */ = {
 			isa = PBXGroup;
 			children = (
+				98F5EB081FC91F3C00D91FA1 /* Somo.h */,
 				98F5EAEF1FC6B69D00D91FA1 /* UIView+SomoSkeleton.h */,
 				98F5EAF01FC6B69D00D91FA1 /* UIView+SomoSkeleton.m */,
 				98F5EAF31FC7F92D00D91FA1 /* SomoView.h */,
 				98F5EAF41FC7F92D00D91FA1 /* SomoView.m */,
-				98F5EAF61FC7F9F600D91FA1 /* SomoSkeletonLayoutProtocol.h */,
-				98F5EB081FC91F3C00D91FA1 /* Somo.h */,
-				98D3E36A1FC95EEA007F5A97 /* SomoDefines.h */,
 				9836566B1FD798CF008F57D4 /* SomoDataSourceProvider.h */,
 				9836566C1FD798CF008F57D4 /* SomoDataSourceProvider.m */,
+				98D3E36A1FC95EEA007F5A97 /* SomoDefines.h */,
+				98F5EAF61FC7F9F600D91FA1 /* SomoSkeletonLayoutProtocol.h */,
 			);
 			path = Somo;
 			sourceTree = "<group>";

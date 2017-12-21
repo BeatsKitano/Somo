@@ -60,7 +60,7 @@ static const CGFloat kShadowWidth = 60.;
 
 - (void)_setup{
 	_somoColor = SomoColorFromRGBV(150);
-	_animationStyle = SomoAnimationStyleSolid;
+	_animationStyle = SomoAnimationStyleGradientVertical;
 	self.backgroundColor = self.somoColor;
 	self.layer.masksToBounds = YES;
 	[self _animate];
