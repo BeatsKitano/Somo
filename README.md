@@ -75,7 +75,7 @@ pod 'Somo'
  */
 - (NSArray<SomoView *> *)somoSkeletonLayout;
 ```
-* Somo对UIView进行了扩展，开发者扩展方法即可拥有Skeleton效果：
+* Somo对UIView进行了扩展，开发者调用即可拥有Skeleton效果：
 ```objective-c
 - (void)beginSomo;
 - (void)endSomo; 
