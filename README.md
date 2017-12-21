@@ -1,7 +1,7 @@
  * [简介](#somo_intro)
  * [集成](#somo_integrate)
  * [用法](#somo_usage)
- * [UITableView-skeleton](#somo_uitableview)
+ * [UITableView UICollectionView-skeleton](#somo_uitableview)
 #### <a id="somo_intro"></a>简介 
  
 - [x] iOS 7.0+
@@ -113,3 +113,14 @@ self.tableView.delegate = self;
 	[cell endSomo];
 }
 ``` 
+	
+* UICollectionView skeleton
+* 数据着陆前：
+self.provider = [SomoDataSourceProvider dataSourceProviderWithCellReuseIdentifier:@"id"];
+self.collectionView.dataSource = self.provider;
+self.collectionView.delegate = self.provider;
+
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+	[cell endSomo];
+}
