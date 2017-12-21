@@ -36,11 +36,10 @@
 	[super viewDidAppear:animated];
 	
 	//随便写一个代表网络请求3秒
-	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
 	__weak typeof(self) weakSelf = self;
-	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 		__strong typeof(weakSelf) strongSelf = weakSelf;
 		[strongSelf load];
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

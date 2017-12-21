@@ -1,10 +1,12 @@
-//
-//  SomoView.m
-//  SomoDemo
-//
-//  Created by 向小辉 on 2017/11/24.
-//  Copyright © 2017年 KINX. All rights reserved.
-//
+/**
+ * Copyright (c) 2016-present, K.
+ * All rights reserved.
+ *
+ * e-mail:xorshine@icloud.com
+ * github:https://github.com/xorshine
+ *
+ * This source code is licensed under the MIT license.
+ */
 
 #import "SomoView.h"
 #import "SomoDefines.h"
@@ -20,17 +22,18 @@ static const CGFloat kShadowWidth = 60.;
 @implementation SomoView
 
 - (instancetype)initWithFrame:(CGRect)rect somoColor:(UIColor *)color{
-	if (self = [super initWithFrame:rect]) {
-		self.somoColor = color;
-		[self setup];
-	}
-	return self;
+	return [[[self class] alloc] initWithFrame:rect
+									 somoColor:color
+								animationStyle:SomoAnimationStyleSolid];
 }
 
-- (instancetype)init{
-	self = [super init];
-	if (self) {
-		[self setup];
+- (instancetype)initWithFrame:(CGRect)rect
+					somoColor:(UIColor *)color
+			   animationStyle:(SomoAnimationStyle)style{
+	if (self = [super initWithFrame:rect]) {
+		[self _setup];
+		_somoColor = color;
+		_animationStyle = style;
 	}
 	return self;
 }
@@ -38,43 +41,109 @@ static const CGFloat kShadowWidth = 60.;
 - (instancetype)initWithFrame:(CGRect)frame{
 	self = [super initWithFrame:frame];
 	if (self) {
-		[self setup];
+		[self _setup];
 	}
 	return self;
 }
 
-- (void)setup{
-	if (!self.somoColor) {
-		self.somoColor = SomoColorFromRGBV(200);
-	}
-	self.backgroundColor = self.somoColor;
-	self.layer.masksToBounds = YES;
-	[self.layer addSublayer:self.somoLayer];
-	
-	[self animate];
+- (void)layoutSubviews{
+	[super layoutSubviews];
 }
 
-- (void)animate{
-	CABasicAnimation * basic = [CABasicAnimation animationWithKeyPath:@"position"];
-	basic.fromValue = [NSValue valueWithCGPoint:CGPointMake(-kShadowWidth/2., self.bounds.size.height/2.)];
-	basic.toValue = [NSValue valueWithCGPoint:CGPointMake(self.bounds.size.width+kShadowWidth/2., self.bounds.size.height/2.)];
-	basic.duration = 1.5;
-	basic.repeatCount = INFINITY;
-	[self.somoLayer addAnimation:basic forKey:basic.keyPath];
+- (void)setAnimationStyle:(SomoAnimationStyle)animationStyle{
+	if (_animationStyle != animationStyle) {
+		_animationStyle = animationStyle;
+		[self.somoLayer removeFromSuperlayer];
+		[self _animate];
+	}
+}
+
+- (void)_setup{
+	_somoColor = SomoColorFromRGBV(150);
+	_animationStyle = SomoAnimationStyleSolid;
+	self.backgroundColor = self.somoColor;
+	self.layer.masksToBounds = YES;
+	[self _animate];
+}
+
+- (void)_animate{
+	CGSize size = self.bounds.size;
+	switch (self.animationStyle) {
+		case SomoAnimationStyleSolid:{
+			CABasicAnimation * basic = [CABasicAnimation animationWithKeyPath:@"opacity"];
+			basic.fromValue = @1.;
+			basic.toValue = @0.5;
+			basic.duration = 2.;
+			basic.repeatCount = INFINITY;
+			basic.autoreverses = YES;
+			basic.removedOnCompletion = NO;
+			[self.layer addAnimation:basic forKey:basic.keyPath];
+			break;
+		}
+		case SomoAnimationStyleGradientHorizontal:{
+			CABasicAnimation * basic = [CABasicAnimation animationWithKeyPath:@"position"];
+			basic.fromValue = [NSValue valueWithCGPoint:CGPointMake(-kShadowWidth/2., size.height/2.)];
+			basic.toValue = [NSValue valueWithCGPoint:CGPointMake(size.width+kShadowWidth/2., size.height/2.)];
+			basic.duration = 1.5;
+			basic.repeatCount = INFINITY;
+			basic.removedOnCompletion = NO;
+			self.somoLayer.frame = CGRectMake(0, 0, kShadowWidth, size.height);
+			self.somoLayer.startPoint = CGPointMake(0, 0.5);
+			self.somoLayer.endPoint = CGPointMake(1, 0.5);
+			[self.somoLayer addAnimation:basic forKey:basic.keyPath];
+			[self.layer addSublayer:self.somoLayer];
+			break;
+		}
+		case SomoAnimationStyleGradientVertical:{
+			CGFloat height = size.height/2. > 40. ? : 40.;
+			CABasicAnimation * basic = [CABasicAnimation animationWithKeyPath:@"position"];
+			basic.fromValue = [NSValue valueWithCGPoint:CGPointMake(size.width/2., -height)];
+			basic.toValue = [NSValue valueWithCGPoint:CGPointMake(size.width/2., size.height+height)];
+			basic.duration = 1.5;
+			basic.repeatCount = INFINITY;
+			basic.removedOnCompletion = NO;
+			self.somoLayer.frame = CGRectMake(0,0,size.width,height);
+			self.somoLayer.startPoint = CGPointMake(0.5, 0);
+			self.somoLayer.endPoint = CGPointMake(0.5, 1);
+			[self.somoLayer addAnimation:basic forKey:basic.keyPath];
+			[self.layer addSublayer:self.somoLayer];
+			break;
+		}
+		case SomoAnimationStyleOblique:{
+			CABasicAnimation * basic = [CABasicAnimation animationWithKeyPath:@"position"];
+			basic.fromValue = [NSValue valueWithCGPoint:CGPointMake(-kShadowWidth, size.height/2.)];
+			basic.toValue = [NSValue valueWithCGPoint:CGPointMake(size.width+kShadowWidth, size.height/2.)];
+			basic.duration = 1.5;
+			basic.repeatCount = INFINITY;
+			basic.removedOnCompletion = NO;
+			self.somoLayer.affineTransform = CGAffineTransformMakeRotation(0.4);
+			self.somoLayer.frame = CGRectMake(0, 0, kShadowWidth, size.height+200);
+			self.somoLayer.startPoint = CGPointMake(0, 0.5);
+			self.somoLayer.endPoint = CGPointMake(1, 0.5);
+			[self.somoLayer addAnimation:basic forKey:basic.keyPath];
+			[self.layer addSublayer:self.somoLayer];
+			break;
+		}
+		default:
+			break;
+	}
 }
 
 -(CAGradientLayer *)somoLayer{
 	if (!_somoLayer) {
 		_somoLayer = [CAGradientLayer layer];
-		_somoLayer.frame = CGRectMake(0, 0, kShadowWidth, self.bounds.size.height);
-		_somoLayer.colors = @[(id)[self.somoColor colorWithAlphaComponent:0.1].CGColor,
-							  (id)[[UIColor whiteColor] colorWithAlphaComponent:0.25].CGColor,
-							  (id)[[UIColor whiteColor] colorWithAlphaComponent:0.4].CGColor,
-							  (id)[[UIColor whiteColor] colorWithAlphaComponent:0.25].CGColor,
-							  (id)[self.somoColor colorWithAlphaComponent:0.1].CGColor];
-		_somoLayer.startPoint = CGPointMake(0, 0.5);
-		_somoLayer.endPoint = CGPointMake(1, 0.5);
-		
+		UIColor * color = [UIColor whiteColor];
+		_somoLayer.colors = @[(id)[color colorWithAlphaComponent:0.03].CGColor,
+							  (id)[color colorWithAlphaComponent:0.09].CGColor,
+							  (id)[color colorWithAlphaComponent:0.15].CGColor,
+							  (id)[color colorWithAlphaComponent:0.21].CGColor,
+							  (id)[color colorWithAlphaComponent:0.27].CGColor,
+							  (id)[color colorWithAlphaComponent:0.30].CGColor,
+							  (id)[color colorWithAlphaComponent:0.27].CGColor,
+							  (id)[color colorWithAlphaComponent:0.21].CGColor,
+							  (id)[color colorWithAlphaComponent:0.15].CGColor,
+							  (id)[color colorWithAlphaComponent:0.09].CGColor,
+							  (id)[color colorWithAlphaComponent:0.03].CGColor];
 	}
 	return _somoLayer;
 }

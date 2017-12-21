@@ -19,7 +19,6 @@
 	
 	self.tableView.tableFooterView = [UIView new];
 	self.tableView.rowHeight = 80;
-	
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
