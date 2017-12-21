@@ -26,7 +26,7 @@
 <img src="https://github.com/xorshine/Somo/blob/master/horizontal.gif"></img>
 </td>
 <td width="25%">
-<img src="https://github.com/xorshine/Somo/blob/master/GradientVertical.gif"></img>
+<img src="https://github.com/xorshine/Somo/blob/master/vertical.gif"></img>
 </td>
 <td width="25%">
 <img src="https://github.com/xorshine/Somo/blob/master/oblique.gif"></img>
