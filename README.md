@@ -3,7 +3,37 @@
  * [用法](#somo_usage)
  * [UITableView-skeleton](#somo_uitableview)
 ### <a id="somo_intro"></a>简介 
-![](https://github.com/xorshine/Somo/blob/master/Somo.gif)
+<table>
+<tr>
+<td width="25%">
+<center>Solid</center>
+</td>
+<td width="25%">
+<center>GradientHorizontal</center>
+</td>
+<td width="25%">
+<center>GradientVertical</center>
+</td>
+<td width="25%">
+<center>Oblique</center>
+</td>
+</tr>
+<tr>
+<td width="25%">
+<img src="https://github.com/xorshine/Somo/blob/master/solid.gif"></img>
+</td>
+<td width="25%">
+<img src="https://github.com/xorshine/Somo/blob/master/GradientHorizontal.gif"></img>
+</td>
+<td width="25%">
+<img src="https://github.com/xorshine/Somo/blob/master/GradientVertical.gif"></img>
+</td>
+<td width="25%">
+<img src="https://github.com/xorshine/Somo/blob/master/oblique.gif"></img>
+</td>
+</tr>
+</table>
+ 
 ### <a id="somo_integrate"></a>集成
 ```pod 'Somo'```
 ### <a id="somo_usage"></a>使用
