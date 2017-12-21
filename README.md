@@ -116,11 +116,13 @@ self.tableView.delegate = self;
 	
 * UICollectionView skeleton
 * 数据着陆前：
+```objective-c
 self.provider = [SomoDataSourceProvider dataSourceProviderWithCellReuseIdentifier:@"id"];
 self.collectionView.dataSource = self.provider;
 self.collectionView.delegate = self.provider;
-
-
+```
+```objective-c
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
 	[cell endSomo];
 }
+```
