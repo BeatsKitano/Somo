@@ -52,8 +52,9 @@
 </table>
  
 #### <a id="somo_integrate"></a>集成
-```pod 'Somo'``
-`
+```ruby
+pod 'Somo'
+```
 #### <a id="somo_usage"></a>使用
 ```objective-c
 #import "Somo.h" 
