@@ -1,3 +1,5 @@
+ ![](_logo.png)
+ 
  * [简介](#somo_intro)
  * [集成](#somo_integrate)
  * [用法](#somo_usage)
@@ -37,16 +39,16 @@
 </tr>
 <tr>
 <td width="25%">
-<img src="https://github.com/xorshine/Somo/blob/master/solid.gif"></img>
+<img src="solid.gif"></img>
 </td>
 <td width="25%">
-<img src="https://github.com/xorshine/Somo/blob/master/horizontal.gif"></img>
+<img src="horizontal.gif"></img>
 </td>
 <td width="25%">
-<img src="https://github.com/xorshine/Somo/blob/master/vertical.gif"></img>
+<img src="vertical.gif"></img>
 </td>
 <td width="25%">
-<img src="https://github.com/xorshine/Somo/blob/master/oblique.gif"></img>
+<img src="oblique.gif"></img>
 </td>
 </tr>
 </table>
