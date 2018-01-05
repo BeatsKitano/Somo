@@ -1,5 +1,8 @@
  ![](_logo.png)
- 
+ ![](https://img.shields.io/packagist/l/doctrine/orm.svg)
+![](https://img.shields.io/cocoapods/v/{Somo}.svg?style=flat)
+![](https://img.shields.io/badge/platform-ios-lightgrey.svg)
+![](https://img.shields.io/badge/language-objc-orange.svg)
  * [简介](#somo_intro)
  * [集成](#somo_integrate)
  * [用法](#somo_usage)
