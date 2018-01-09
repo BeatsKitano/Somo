@@ -31,9 +31,7 @@ static const CGFloat kShadowWidth = 60.;
 					somoColor:(UIColor *)color
 			   animationStyle:(SomoAnimationStyle)style{
 	if (self = [super initWithFrame:rect]) {
-		[self _setup];
-		_somoColor = color;
-		_animationStyle = style;
+		[self _setupWithColor:color animationStyle:style];
 	}
 	return self;
 }
@@ -41,7 +39,7 @@ static const CGFloat kShadowWidth = 60.;
 - (instancetype)initWithFrame:(CGRect)frame{
 	self = [super initWithFrame:frame];
 	if (self) {
-		[self _setup];
+		[self _setupWithColor:SomoColorFromRGBV(150) animationStyle:SomoAnimationStyleGradientVertical];
 	}
 	return self;
 }
@@ -58,9 +56,10 @@ static const CGFloat kShadowWidth = 60.;
 	}
 }
 
-- (void)_setup{
-	_somoColor = SomoColorFromRGBV(150);
-	_animationStyle = SomoAnimationStyleGradientVertical;
+- (void)_setupWithColor:(UIColor *)color
+         animationStyle:(SomoAnimationStyle)style {
+    _somoColor = color;
+    _animationStyle = style;
 	self.backgroundColor = self.somoColor;
 	self.layer.masksToBounds = YES;
 	[self _animate];

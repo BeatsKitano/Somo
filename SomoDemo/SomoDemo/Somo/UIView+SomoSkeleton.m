@@ -53,6 +53,9 @@ static void * kSomoContainerKey = &kSomoContainerKey;
 	
 	[self bringSubviewToFront:self.somoContainer];
 	
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+    
 	NSArray<SomoView *> * somoViews = [(UIView<SomoSkeletonLayoutProtocol> *)self somoSkeletonLayout];
 	
 	[self buildSkeletonSubViews:somoViews];
