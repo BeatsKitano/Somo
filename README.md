@@ -3,27 +3,13 @@
 ![](https://img.shields.io/cocoapods/v/{Somo}.svg?style=flat)
 ![](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![](https://img.shields.io/badge/language-objc-orange.svg)
- * [简介](#somo_intro)
- * [集成](#somo_integrate)
- * [用法](#somo_usage)
- * [UITableView UICollectionView-skeleton](#somo_uitableview)
+
 #### <a id="somo_intro"></a>简介 
  
 - [x] iOS 7.0+
 - [x] 多样式
 - [x] 轻量级，核心实现仅仅是对UIView进行扩展 
 - [x] 可以自定义
-
-#### 🍎 SomoAnimationStyle
- 
- ```objective-c
- typedef NS_ENUM(NSInteger,SomoAnimationStyle) { 
-	SomoAnimationStyleSolid,
-	SomoAnimationStyleGradientHorizontal,
-	SomoAnimationStyleGradientVertical,
-	SomoAnimationStyleOblique
-};
- ```
 
 <table>
 <tr>
