@@ -17,6 +17,10 @@ typedef UICollectionViewCell<SomoSkeletonLayoutProtocol> *(^SomoCollectionViewCe
 
 typedef CGFloat(^SomoTableViewCellHeightBlock)(UITableView *tableview, NSIndexPath *indexPath);
 
+typedef NSInteger(^SomoCollectionViewNumberOfSectionBlock)(UICollectionView *collectionView);
+
+typedef NSInteger(^SomoCollectionViewNumberOfRowInsSections)(UICollectionView *collectionView,NSInteger section);
+
 typedef CGSize(^SomoCollectionViewLayoutSize)(UICollectionView *collectionView,UICollectionViewLayout*collectionViewLayout,NSIndexPath *indexPath);
 
 typedef UIEdgeInsets(^SomoCollectionViewLayoutEdgeInsets)(UICollectionView *collectionView,UICollectionViewLayout*collectionViewLayout,NSInteger section);
@@ -50,6 +54,8 @@ typedef CGSize(^SomoCollectionViewLayoutReferenceSizeForFooter)(UICollectionView
 							   heightBlock:(SomoTableViewCellHeightBlock)heightBlock;
 
 - (instancetype)initWithCollectionViewCellBlock:(SomoCollectionViewCellBlock)block
+									   sections:(SomoCollectionViewNumberOfSectionBlock)sections
+										   rows:(SomoCollectionViewNumberOfRowInsSections)rows
 										   size:(SomoCollectionViewLayoutSize)size
 									 edgeInsets:(SomoCollectionViewLayoutEdgeInsets)edgeInsets
 							 minimumLineSpacing:(SomoCollectionViewLayoutMinimumLineSpacing)minimumLineSpacing

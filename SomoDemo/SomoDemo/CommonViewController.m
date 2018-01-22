@@ -10,7 +10,7 @@
 #import "SView.h"
 #import "Somo.h"
 
-@interface CommonViewController ()<UICollectionViewDelegateFlowLayout>
+@interface CommonViewController ()
 @property (weak, nonatomic) IBOutlet SView *sview;
 
 @end
