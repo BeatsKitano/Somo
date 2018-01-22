@@ -14,6 +14,8 @@
 @implementation SomoDataSourceProvider
 {
 	NSString * _reuseIdentifier;
+	SomoTableViewCellBlock _tableViewCellBlock;
+	SomoCollectionViewCellBlock _collectionViewCellBlock;
 }
 
 - (instancetype)initWithCellReuseIdentifier:(NSString *)reuseIdentifier{
@@ -28,13 +30,32 @@
 	return [[[self class] alloc] initWithCellReuseIdentifier:reuseIdentifier];
 }
 
+- (instancetype)initWithTableViewCellBlock:(SomoTableViewCellBlock)block{
+	if (self = [super init]) {
+		_tableViewCellBlock = block;
+		_numberOfRowsInSection = 30;
+	}
+	return self;
+}
+
+- (instancetype)initWithCollectionViewCellBlock:(SomoCollectionViewCellBlock)block{
+	if (self = [super init]) {
+		_collectionViewCellBlock = block;
+		_numberOfRowsInSection = 30;
+	}
+	return self;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	return self.numberOfRowsInSection;
 }
   
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:_reuseIdentifier forIndexPath:indexPath];
-	return cell;
+	if (_reuseIdentifier) {
+		return [tableView dequeueReusableCellWithIdentifier:_reuseIdentifier forIndexPath:indexPath];
+	}else{
+		return _tableViewCellBlock(tableView,indexPath);
+	}
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -48,8 +69,11 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_reuseIdentifier forIndexPath:indexPath];
-	return cell;
+	if (_reuseIdentifier) {
+		return [collectionView dequeueReusableCellWithReuseIdentifier:_reuseIdentifier forIndexPath:indexPath];
+	}else{
+		return _collectionViewCellBlock(collectionView, indexPath);
+	}
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{

@@ -10,6 +10,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+@protocol SomoSkeletonLayoutProtocol;
+
+typedef UITableViewCell<SomoSkeletonLayoutProtocol> *(^SomoTableViewCellBlock)(UITableView *tableview, NSIndexPath *indexPath);
+typedef UICollectionViewCell<SomoSkeletonLayoutProtocol> *(^SomoCollectionViewCellBlock)(UICollectionView *tableview, NSIndexPath *indexPath);
 
 @interface SomoDataSourceProvider : NSObject<UITableViewDataSource,UITableViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -18,7 +22,16 @@
  */
 @property (assign, nonatomic) NSInteger numberOfRowsInSection;
 
+/**
+ If you have only one cell style, use the following method
+ */
 - (instancetype)initWithCellReuseIdentifier:(NSString *)reuseIdentifier;
 + (instancetype)dataSourceProviderWithCellReuseIdentifier:(NSString *)reuseIdentifier;
+
+/**
+ If you have different cell styles, use the following method
+ */
+- (instancetype)initWithTableViewCellBlock:(SomoTableViewCellBlock)block;
+- (instancetype)initWithCollectionViewCellBlock:(SomoCollectionViewCellBlock)block;
 
 @end
