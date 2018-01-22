@@ -17,6 +17,12 @@
 	SomoTableViewCellBlock _tableViewCellBlock;
 	SomoTableViewCellHeightBlock _heightBlock;
 	SomoCollectionViewCellBlock _collectionViewCellBlock;
+	SomoCollectionViewLayoutSize _sizeBlock;
+	SomoCollectionViewLayoutEdgeInsets _insetsBlock;
+	SomoCollectionViewLayoutMinimumLineSpacing _minimumLineSpacingBlock;
+	SomoCollectionViewLayoutMinimumInteritemSpacing _minimumInteritemSpacingBlock;
+	SomoCollectionViewLayoutReferenceSizeForHeader _referenceSizeForHeaderBlock;
+	SomoCollectionViewLayoutReferenceSizeForFooter _referenceSizeForFooterBlock;
 }
 
 - (instancetype)initWithCellReuseIdentifier:(NSString *)reuseIdentifier{
@@ -40,10 +46,22 @@
 	return self;
 }
 
-- (instancetype)initWithCollectionViewCellBlock:(SomoCollectionViewCellBlock)block{
+- (instancetype)initWithCollectionViewCellBlock:(SomoCollectionViewCellBlock)block
+										   size:(SomoCollectionViewLayoutSize)size
+									 edgeInsets:(SomoCollectionViewLayoutEdgeInsets)edgeInsets
+							 minimumLineSpacing:(SomoCollectionViewLayoutMinimumLineSpacing)minimumLineSpacing
+						minimumInteritemSpacing:(SomoCollectionViewLayoutMinimumInteritemSpacing)minimumInteritemSpacing
+						 referenceSizeForHeader:(SomoCollectionViewLayoutReferenceSizeForHeader)referenceSizeForHeader
+						 referenceSizeForFooter:(SomoCollectionViewLayoutReferenceSizeForFooter)referenceSizeForFooter{
 	if (self = [super init]) {
 		_collectionViewCellBlock = block;
 		_numberOfRowsInSection = 30;
+		_sizeBlock = size;
+		_insetsBlock = edgeInsets;
+		_minimumLineSpacingBlock = minimumLineSpacing;
+		_minimumInteritemSpacingBlock = minimumInteritemSpacing;
+		_referenceSizeForHeaderBlock = referenceSizeForHeader;
+		_referenceSizeForFooterBlock = referenceSizeForFooter;
 	}
 	return self;
 }
@@ -88,6 +106,30 @@
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
 	[cell beginSomo];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+	return _sizeBlock(collectionView,collectionViewLayout,indexPath);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+	return _insetsBlock(collectionView,collectionViewLayout,section);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+	return _minimumLineSpacingBlock(collectionView,collectionViewLayout,section);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+	return _minimumInteritemSpacingBlock(collectionView,collectionViewLayout,section);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+	return _referenceSizeForHeaderBlock(collectionView,collectionViewLayout,section);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
+	return _referenceSizeForFooterBlock(collectionView,collectionViewLayout,section);
 }
 
 @end

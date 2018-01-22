@@ -10,7 +10,7 @@
 #import "SView.h"
 #import "Somo.h"
 
-@interface CommonViewController ()
+@interface CommonViewController ()<UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet SView *sview;
 
 @end
@@ -22,7 +22,7 @@
 	
 	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo"]];
 	self.navigationItem.titleView.contentMode = UIViewContentModeScaleAspectFit;
-	
+	UICollectionView *c;
 	[self.sview beginSomo];
 }
  
