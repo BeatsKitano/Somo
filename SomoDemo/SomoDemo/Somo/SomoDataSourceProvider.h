@@ -15,6 +15,8 @@
 typedef UITableViewCell<SomoSkeletonLayoutProtocol> *(^SomoTableViewCellBlock)(UITableView *tableview, NSIndexPath *indexPath);
 typedef UICollectionViewCell<SomoSkeletonLayoutProtocol> *(^SomoCollectionViewCellBlock)(UICollectionView *tableview, NSIndexPath *indexPath);
 
+typedef CGFloat(^SomoTableViewCellHeightBlock)(UITableView *tableview, NSIndexPath *indexPath);
+
 @interface SomoDataSourceProvider : NSObject<UITableViewDataSource,UITableViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 
 /**
@@ -31,7 +33,7 @@ typedef UICollectionViewCell<SomoSkeletonLayoutProtocol> *(^SomoCollectionViewCe
 /**
  If you have different cell styles, use the following method
  */
-- (instancetype)initWithTableViewCellBlock:(SomoTableViewCellBlock)block;
+- (instancetype)initWithTableViewCellBlock:(SomoTableViewCellBlock)block heightBlock:(SomoTableViewCellHeightBlock)heightBlock;
 - (instancetype)initWithCollectionViewCellBlock:(SomoCollectionViewCellBlock)block;
 
 @end

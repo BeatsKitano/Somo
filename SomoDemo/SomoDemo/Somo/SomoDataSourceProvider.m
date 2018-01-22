@@ -15,6 +15,7 @@
 {
 	NSString * _reuseIdentifier;
 	SomoTableViewCellBlock _tableViewCellBlock;
+	SomoTableViewCellHeightBlock _heightBlock;
 	SomoCollectionViewCellBlock _collectionViewCellBlock;
 }
 
@@ -30,9 +31,10 @@
 	return [[[self class] alloc] initWithCellReuseIdentifier:reuseIdentifier];
 }
 
-- (instancetype)initWithTableViewCellBlock:(SomoTableViewCellBlock)block{
+- (instancetype)initWithTableViewCellBlock:(SomoTableViewCellBlock)block heightBlock:(SomoTableViewCellHeightBlock)heightBlock{
 	if (self = [super init]) {
 		_tableViewCellBlock = block;
+		_heightBlock = heightBlock;
 		_numberOfRowsInSection = 30;
 	}
 	return self;
@@ -48,6 +50,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	return self.numberOfRowsInSection;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	if (_reuseIdentifier) {
+		return tableView.rowHeight;
+	}else{
+		return _heightBlock(tableView, indexPath);
+	}
 }
   
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
