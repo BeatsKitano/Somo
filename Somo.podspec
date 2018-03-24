@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Somo"
-  s.version      = "0.7.7"
+  s.version      = "0.8.0"
   s.summary      = "Somo is a Skeleton-style animation library that's simple enough."
 
   s.homepage     = "https://github.com/xorshine/Somo"

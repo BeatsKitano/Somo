@@ -8,6 +8,7 @@
 
 #import "DataSourceTableViewController.h"
 #import "DataSourceTableViewCell.h"
+#import "OtherTableViewCell.h"
 #import "Somo.h"
 
 @interface DataSourceTableViewController ()
@@ -22,9 +23,9 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	
-	self.tableView.rowHeight = 100;
+	 
 	[self.tableView registerNib:[UINib nibWithNibName:@"DataSourceTableViewCell" bundle:nil] forCellReuseIdentifier:@"id"];
+	[self.tableView registerNib:[UINib nibWithNibName:@"OtherTableViewCell" bundle:nil] forCellReuseIdentifier:@"oid"];
 	 
 	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo"]];
 	self.navigationItem.titleView.contentMode = UIViewContentModeScaleAspectFit;
@@ -32,7 +33,19 @@
 	#pragma mark - provider
 //	将tableview的datasource指向SomoDataSourceProvider
 //	当数据加载完成后，将tableview的datasource指向self
-	self.provider = [SomoDataSourceProvider dataSourceProviderWithCellReuseIdentifier:@"id"];
+	self.provider = [[SomoDataSourceProvider alloc] initWithTableViewCellBlock:^UITableViewCell<SomoSkeletonLayoutProtocol> *(UITableView *tableView, NSIndexPath *indexPath) {
+		if(indexPath.row%2 == 0){
+			return [tableView dequeueReusableCellWithIdentifier:@"id" forIndexPath:indexPath];
+		}else{
+			return [tableView dequeueReusableCellWithIdentifier:@"oid" forIndexPath:indexPath];
+		} 
+	} heightBlock:^CGFloat(UITableView *tableview, NSIndexPath *indexPath) {
+		if(indexPath.row%2 == 0){
+			return 120;
+		}else{
+			return 80;
+		}
+	}];
 	self.tableView.dataSource = self.provider;
 	self.tableView.delegate = self.provider;
 }
@@ -60,9 +73,9 @@
 	#pragma mark -
 	//==================================================
 	self.tableView.dataSource = self;
-	self.tableView.delegate = self;
-	//==================================================
+	self.tableView.delegate = self; 
 	[self.tableView reloadData];
+	//==================================================
 }
 
 #pragma mark - Table view data source
@@ -71,9 +84,20 @@
 	return self.dataSource.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	if(indexPath.row%2 == 0){
+		return 120;
+	}else{
+		return 80;
+	}
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id" forIndexPath:indexPath];
-	return cell;
+	if(indexPath.row%2 == 0){
+		return [tableView dequeueReusableCellWithIdentifier:@"id" forIndexPath:indexPath];
+	}else{
+		return [tableView dequeueReusableCellWithIdentifier:@"oid" forIndexPath:indexPath];
+	}
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

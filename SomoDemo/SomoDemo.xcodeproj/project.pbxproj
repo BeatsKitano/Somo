@@ -12,6 +12,8 @@
 		983656721FD79CA7008F57D4 /* DataSourceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 983656701FD79CA7008F57D4 /* DataSourceTableViewController.xib */; };
 		983656761FD7A519008F57D4 /* DataSourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 983656741FD7A519008F57D4 /* DataSourceTableViewCell.m */; };
 		983656771FD7A519008F57D4 /* DataSourceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 983656751FD7A519008F57D4 /* DataSourceTableViewCell.xib */; };
+		9863805E20664BCD00D44555 /* OtherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9863805C20664BCD00D44555 /* OtherTableViewCell.m */; };
+		9863805F20664BCD00D44555 /* OtherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9863805D20664BCD00D44555 /* OtherTableViewCell.xib */; };
 		98F5EADA1FC6A74C00D91FA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F5EAD91FC6A74C00D91FA1 /* AppDelegate.m */; };
 		98F5EAE01FC6A74C00D91FA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F5EADE1FC6A74C00D91FA1 /* Main.storyboard */; };
 		98F5EAE21FC6A74C00D91FA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F5EAE11FC6A74C00D91FA1 /* Assets.xcassets */; };
@@ -38,6 +40,9 @@
 		983656731FD7A519008F57D4 /* DataSourceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSourceTableViewCell.h; sourceTree = "<group>"; };
 		983656741FD7A519008F57D4 /* DataSourceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSourceTableViewCell.m; sourceTree = "<group>"; };
 		983656751FD7A519008F57D4 /* DataSourceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataSourceTableViewCell.xib; sourceTree = "<group>"; };
+		9863805B20664BCD00D44555 /* OtherTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherTableViewCell.h; sourceTree = "<group>"; };
+		9863805C20664BCD00D44555 /* OtherTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherTableViewCell.m; sourceTree = "<group>"; };
+		9863805D20664BCD00D44555 /* OtherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherTableViewCell.xib; sourceTree = "<group>"; };
 		98D3E36A1FC95EEA007F5A97 /* SomoDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SomoDefines.h; sourceTree = "<group>"; };
 		98F5EAD51FC6A74C00D91FA1 /* SomoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F5EAD81FC6A74C00D91FA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +85,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9863806020664C3C00D44555 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				98F5EAF71FC8148B00D91FA1 /* SView.h */,
+				98F5EAF81FC8148B00D91FA1 /* SView.m */,
+				98F5EB021FC91EE600D91FA1 /* TableViewCell.h */,
+				98F5EB031FC91EE600D91FA1 /* TableViewCell.m */,
+				98F5EB041FC91EE600D91FA1 /* TableViewCell.xib */,
+				9863805B20664BCD00D44555 /* OtherTableViewCell.h */,
+				9863805C20664BCD00D44555 /* OtherTableViewCell.m */,
+				9863805D20664BCD00D44555 /* OtherTableViewCell.xib */,
+				983656731FD7A519008F57D4 /* DataSourceTableViewCell.h */,
+				983656741FD7A519008F57D4 /* DataSourceTableViewCell.m */,
+				983656751FD7A519008F57D4 /* DataSourceTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		98F5EACC1FC6A74C00D91FA1 = {
 			isa = PBXGroup;
 			children = (
@@ -113,14 +136,7 @@
 				9836566E1FD79CA7008F57D4 /* DataSourceTableViewController.h */,
 				9836566F1FD79CA7008F57D4 /* DataSourceTableViewController.m */,
 				983656701FD79CA7008F57D4 /* DataSourceTableViewController.xib */,
-				98F5EB021FC91EE600D91FA1 /* TableViewCell.h */,
-				98F5EB031FC91EE600D91FA1 /* TableViewCell.m */,
-				98F5EB041FC91EE600D91FA1 /* TableViewCell.xib */,
-				983656731FD7A519008F57D4 /* DataSourceTableViewCell.h */,
-				983656741FD7A519008F57D4 /* DataSourceTableViewCell.m */,
-				983656751FD7A519008F57D4 /* DataSourceTableViewCell.xib */,
-				98F5EAF71FC8148B00D91FA1 /* SView.h */,
-				98F5EAF81FC8148B00D91FA1 /* SView.m */,
+				9863806020664C3C00D44555 /* Views */,
 				98F5EADE1FC6A74C00D91FA1 /* Main.storyboard */,
 				98F5EAE11FC6A74C00D91FA1 /* Assets.xcassets */,
 				98F5EAE31FC6A74C00D91FA1 /* LaunchScreen.storyboard */,
@@ -211,6 +227,7 @@
 				98F5EAE51FC6A74C00D91FA1 /* LaunchScreen.storyboard in Resources */,
 				983656721FD79CA7008F57D4 /* DataSourceTableViewController.xib in Resources */,
 				98F5EAE21FC6A74C00D91FA1 /* Assets.xcassets in Resources */,
+				9863805F20664BCD00D44555 /* OtherTableViewCell.xib in Resources */,
 				98F5EAE01FC6A74C00D91FA1 /* Main.storyboard in Resources */,
 				98F5EB0D1FC9213D00D91FA1 /* CommonViewController.xib in Resources */,
 			);
@@ -230,6 +247,7 @@
 				98F5EAF11FC6B69D00D91FA1 /* UIView+SomoSkeleton.m in Sources */,
 				9836566D1FD798CF008F57D4 /* SomoDataSourceProvider.m in Sources */,
 				983656761FD7A519008F57D4 /* DataSourceTableViewCell.m in Sources */,
+				9863805E20664BCD00D44555 /* OtherTableViewCell.m in Sources */,
 				98F5EB051FC91EE600D91FA1 /* TableViewCell.m in Sources */,
 				98F5EADA1FC6A74C00D91FA1 /* AppDelegate.m in Sources */,
 				98F5EAF51FC7F92D00D91FA1 /* SomoView.m in Sources */,

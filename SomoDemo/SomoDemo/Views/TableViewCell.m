@@ -10,12 +10,7 @@
 #import "Somo.h"
 
 @implementation TableViewCell
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-	
-}
-
+ 
 - (void)setShouldLoading:(BOOL)shouldLoading{
 	_shouldLoading = shouldLoading;
 	if (_shouldLoading) {

@@ -3,13 +3,12 @@
 ![](https://img.shields.io/cocoapods/v/{Somo}.svg?style=flat)
 ![](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![](https://img.shields.io/badge/language-objc-orange.svg)
-
-#### <a id="somo_intro"></a>简介 
- 
+  
 - [x] iOS 7.0+
 - [x] 多样式
 - [x] 轻量级，核心实现仅仅是对UIView进行扩展 
 - [x] 可以自定义
+- [x] 支持不同高度的cell
 
 <table>
 <tr>
@@ -81,13 +80,33 @@ pod 'Somo'
 的SomoDataSourceProvider实例。当数据着陆后，将tableview的datasource和delegate指向controller或其他。
 
 * 数据着陆前：
+
 ```objective-c
-#pragma mark - provider
+
 //将tableview的datasource指向SomoDataSourceProvider
 //当数据加载完成后，将tableview的datasource指向self
+//cell高度相同
 self.provider = [SomoDataSourceProvider dataSourceProviderWithCellReuseIdentifier:@"id"];
 self.tableView.dataSource = self.provider;
 self.tableView.delegate = self.provider;
+```
+
+//cell高度不同
+
+```objective-c
+self.provider = [[SomoDataSourceProvider alloc] initWithTableViewCellBlock:^UITableViewCell<SomoSkeletonLayoutProtocol> *(UITableView *tableView, NSIndexPath *indexPath) {
+		if(indexPath.row%2 == 0){
+			return [tableView dequeueReusableCellWithIdentifier:@"id" forIndexPath:indexPath];
+		}else{
+			return [tableView dequeueReusableCellWithIdentifier:@"oid" forIndexPath:indexPath];
+		} 
+	} heightBlock:^CGFloat(UITableView *tableview, NSIndexPath *indexPath) {
+		if(indexPath.row%2 == 0){
+			return 120;
+		}else{
+			return 80;
+		}
+	}];
 ```
 * 数据着陆后：
 ```objective-c
