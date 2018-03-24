@@ -85,15 +85,12 @@ pod 'Somo'
 
 //将tableview的datasource指向SomoDataSourceProvider
 //当数据加载完成后，将tableview的datasource指向self
-//cell高度相同
+
+//cell高度相同时使用该方法初始化
 self.provider = [SomoDataSourceProvider dataSourceProviderWithCellReuseIdentifier:@"id"];
-self.tableView.dataSource = self.provider;
-self.tableView.delegate = self.provider;
-```
-
-//cell高度不同
-
-```objective-c
+ 
+//cell高度不同时
+ 
 self.provider = [[SomoDataSourceProvider alloc] initWithTableViewCellBlock:^UITableViewCell<SomoSkeletonLayoutProtocol> *(UITableView *tableView, NSIndexPath *indexPath) {
 		if(indexPath.row%2 == 0){
 			return [tableView dequeueReusableCellWithIdentifier:@"id" forIndexPath:indexPath];
@@ -107,6 +104,9 @@ self.provider = [[SomoDataSourceProvider alloc] initWithTableViewCellBlock:^UITa
 			return 80;
 		}
 	}];
+	
+self.tableView.dataSource = self.provider;
+self.tableView.delegate = self.provider;
 ```
 * 数据着陆后：
 ```objective-c
