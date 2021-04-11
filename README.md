@@ -1,4 +1,4 @@
- ![](_logo.png)
+![](_logo.png)
  ![](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![](https://img.shields.io/cocoapods/v/{Somo}.svg?style=flat)
 ![](https://img.shields.io/badge/platform-ios-lightgrey.svg)
@@ -48,6 +48,8 @@ pod 'Somo'
 #### <a id="somo_usage"></a>使用
 ```objective-c
 #import "Somo.h" 
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHHHsiang%2FSomo.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHHHsiang%2FSomo?ref=badge_shield)
+
 ```
 * 当需要某一个UIView拥有Skeleton效果时，只需遵守<SomoSkeletonLayoutProtocol>协议，实现一个必要方法：
 	
@@ -137,3 +139,7 @@ self.collectionView.delegate = self.provider;
 	[cell endSomo];
 }
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHHHsiang%2FSomo.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHHHsiang%2FSomo?ref=badge_large)
